@@ -234,7 +234,7 @@ func (c *Client) doRequest(ctx context.Context, method, path string, body io.Rea
 	if err != nil {
 		return nil, fmt.Errorf("do request: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
@@ -264,7 +264,7 @@ func (c *Client) doPost(ctx context.Context, path string, body interface{}) ([]b
 	if err != nil {
 		return nil, fmt.Errorf("marshal request: %w", err)
 	}
-	return c.doRequest(ctx, http.MethodPost, path, io.NopCloser(io.Reader(jsonReaderFrom(jsonBody))))
+	return c.doRequest(ctx, http.MethodPost, path, io.NopCloser(jsonReaderFrom(jsonBody)))
 }
 
 // jsonReaderFrom creates a reader from JSON bytes.

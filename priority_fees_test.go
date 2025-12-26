@@ -308,10 +308,10 @@ func TestGetPriorityFeeEstimateForTransaction(t *testing.T) {
 
 func TestCalculatePriorityFee(t *testing.T) {
 	tests := []struct {
-		name             string
-		computeUnits     int64
+		name               string
+		computeUnits       int64
 		microLamportsPerCU float64
-		expected         int64
+		expected           int64
 	}{
 		{
 			name:               "standard calculation",
@@ -391,13 +391,13 @@ func TestPriorityFeeEstimateTypes(t *testing.T) {
 
 	t.Run("get priority fee options", func(t *testing.T) {
 		opts := GetPriorityFeeOptions{
-			TransactionEncoding:        "base64",
-			PriorityLevel:              PriorityMedium,
+			TransactionEncoding:         "base64",
+			PriorityLevel:               PriorityMedium,
 			IncludeAllPriorityFeeLevels: true,
-			LookbackSlots:              150,
-			IncludeVote:                true,
-			Recommended:                true,
-			EvaluateEmptySlotAsZero:    true,
+			LookbackSlots:               150,
+			IncludeVote:                 true,
+			Recommended:                 true,
+			EvaluateEmptySlotAsZero:     true,
 		}
 		if opts.PriorityLevel != PriorityMedium {
 			t.Errorf("PriorityLevel = %s, want Medium", opts.PriorityLevel)

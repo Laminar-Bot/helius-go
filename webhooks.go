@@ -340,17 +340,17 @@ type WebhookEvent struct {
 
 // AccountData represents account data changes.
 type AccountData struct {
-	Account             string `json:"account"`
-	NativeBalanceChange int64  `json:"nativeBalanceChange,omitempty"`
+	Account             string               `json:"account"`
+	NativeBalanceChange int64                `json:"nativeBalanceChange,omitempty"`
 	TokenBalanceChanges []TokenBalanceChange `json:"tokenBalanceChanges,omitempty"`
 }
 
 // TokenBalanceChange represents a token balance change.
 type TokenBalanceChange struct {
-	Mint            string `json:"mint"`
-	RawTokenAmount  RawTokenAmount `json:"rawTokenAmount"`
-	TokenAccount    string `json:"tokenAccount"`
-	UserAccount     string `json:"userAccount"`
+	Mint           string         `json:"mint"`
+	RawTokenAmount RawTokenAmount `json:"rawTokenAmount"`
+	TokenAccount   string         `json:"tokenAccount"`
+	UserAccount    string         `json:"userAccount"`
 }
 
 // RawTokenAmount represents a raw token amount.
@@ -361,7 +361,7 @@ type RawTokenAmount struct {
 
 // NativeTransfer represents a SOL transfer.
 type NativeTransfer struct {
-	Amount      int64  `json:"amount"`
+	Amount          int64  `json:"amount"`
 	FromUserAccount string `json:"fromUserAccount"`
 	ToUserAccount   string `json:"toUserAccount"`
 }

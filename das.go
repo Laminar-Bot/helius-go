@@ -1,7 +1,6 @@
 package helius
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -132,19 +131,19 @@ type Price struct {
 
 // AssetsPage represents a paginated response of assets.
 type AssetsPage struct {
-	Total         int     `json:"total"`
-	Limit         int     `json:"limit"`
-	Page          int     `json:"page,omitempty"`
-	Cursor        string  `json:"cursor,omitempty"`
-	Items         []Asset `json:"items"`
+	Total         int      `json:"total"`
+	Limit         int      `json:"limit"`
+	Page          int      `json:"page,omitempty"`
+	Cursor        string   `json:"cursor,omitempty"`
+	Items         []Asset  `json:"items"`
 	NativeBalance *Balance `json:"nativeBalance,omitempty"`
 }
 
 // Balance represents a native SOL balance.
 type Balance struct {
-	Lamports            int64   `json:"lamports"`
-	PricePerSOL         float64 `json:"price_per_sol,omitempty"`
-	TotalPrice          float64 `json:"total_price,omitempty"`
+	Lamports    int64   `json:"lamports"`
+	PricePerSOL float64 `json:"price_per_sol,omitempty"`
+	TotalPrice  float64 `json:"total_price,omitempty"`
 }
 
 // GetAssetOptions configures the GetAsset request.
@@ -187,17 +186,17 @@ func (c *Client) GetAsset(ctx context.Context, id string) (*Asset, error) {
 
 // AssetsByOwnerOptions configures the GetAssetsByOwner request.
 type AssetsByOwnerOptions struct {
-	Page                   int  `json:"page,omitempty"`
-	Limit                  int  `json:"limit,omitempty"`
-	Cursor                 string `json:"cursor,omitempty"`
-	Before                 string `json:"before,omitempty"`
-	After                  string `json:"after,omitempty"`
-	ShowFungible           bool `json:"showFungible,omitempty"`
-	ShowNativeBalance      bool `json:"showNativeBalance,omitempty"`
-	ShowUnverifiedCollect  bool `json:"showUnverifiedCollections,omitempty"`
-	ShowCollectionMetadata bool `json:"showCollectionMetadata,omitempty"`
-	ShowGrandTotal         bool `json:"showGrandTotal,omitempty"`
-	ShowZeroBalance        bool `json:"showZeroBalance,omitempty"`
+	Page                   int     `json:"page,omitempty"`
+	Limit                  int     `json:"limit,omitempty"`
+	Cursor                 string  `json:"cursor,omitempty"`
+	Before                 string  `json:"before,omitempty"`
+	After                  string  `json:"after,omitempty"`
+	ShowFungible           bool    `json:"showFungible,omitempty"`
+	ShowNativeBalance      bool    `json:"showNativeBalance,omitempty"`
+	ShowUnverifiedCollect  bool    `json:"showUnverifiedCollections,omitempty"`
+	ShowCollectionMetadata bool    `json:"showCollectionMetadata,omitempty"`
+	ShowGrandTotal         bool    `json:"showGrandTotal,omitempty"`
+	ShowZeroBalance        bool    `json:"showZeroBalance,omitempty"`
 	SortBy                 *SortBy `json:"sortBy,omitempty"`
 }
 
@@ -287,33 +286,33 @@ func (c *Client) GetAssetsByOwner(ctx context.Context, ownerAddress string, opts
 
 // SearchAssetsOptions configures the SearchAssets request.
 type SearchAssetsOptions struct {
-	Page                   int      `json:"page,omitempty"`
-	Limit                  int      `json:"limit,omitempty"`
-	Cursor                 string   `json:"cursor,omitempty"`
-	OwnerAddress           string   `json:"ownerAddress,omitempty"`
-	CreatorAddress         string   `json:"creatorAddress,omitempty"`
-	CreatorVerified        *bool    `json:"creatorVerified,omitempty"`
-	AuthorityAddress       string   `json:"authorityAddress,omitempty"`
-	GroupKey               string   `json:"groupKey,omitempty"`
-	GroupValue             string   `json:"groupValue,omitempty"`
-	Delegate               string   `json:"delegate,omitempty"`
-	Frozen                 *bool    `json:"frozen,omitempty"`
-	Supply                 *int64   `json:"supply,omitempty"`
-	SupplyMint             string   `json:"supplyMint,omitempty"`
-	Compressed             *bool    `json:"compressed,omitempty"`
-	Compressible           *bool    `json:"compressible,omitempty"`
-	RoyaltyTargetType      string   `json:"royaltyTargetType,omitempty"`
-	RoyaltyTarget          string   `json:"royaltyTarget,omitempty"`
-	RoyaltyAmount          *int     `json:"royaltyAmount,omitempty"`
-	Burnt                  *bool    `json:"burnt,omitempty"`
-	Interface              string   `json:"interface,omitempty"`
-	TokenType              string   `json:"tokenType,omitempty"`
-	OwnerType              string   `json:"ownerType,omitempty"`
-	SpecificationVersion   string   `json:"specificationVersion,omitempty"`
-	ShowFungible           bool     `json:"showFungible,omitempty"`
-	ShowCollectionMetadata bool     `json:"showCollectionMetadata,omitempty"`
-	SortBy                 *SortBy  `json:"sortBy,omitempty"`
-	JsonUri                string   `json:"jsonUri,omitempty"`
+	Page                   int     `json:"page,omitempty"`
+	Limit                  int     `json:"limit,omitempty"`
+	Cursor                 string  `json:"cursor,omitempty"`
+	OwnerAddress           string  `json:"ownerAddress,omitempty"`
+	CreatorAddress         string  `json:"creatorAddress,omitempty"`
+	CreatorVerified        *bool   `json:"creatorVerified,omitempty"`
+	AuthorityAddress       string  `json:"authorityAddress,omitempty"`
+	GroupKey               string  `json:"groupKey,omitempty"`
+	GroupValue             string  `json:"groupValue,omitempty"`
+	Delegate               string  `json:"delegate,omitempty"`
+	Frozen                 *bool   `json:"frozen,omitempty"`
+	Supply                 *int64  `json:"supply,omitempty"`
+	SupplyMint             string  `json:"supplyMint,omitempty"`
+	Compressed             *bool   `json:"compressed,omitempty"`
+	Compressible           *bool   `json:"compressible,omitempty"`
+	RoyaltyTargetType      string  `json:"royaltyTargetType,omitempty"`
+	RoyaltyTarget          string  `json:"royaltyTarget,omitempty"`
+	RoyaltyAmount          *int    `json:"royaltyAmount,omitempty"`
+	Burnt                  *bool   `json:"burnt,omitempty"`
+	Interface              string  `json:"interface,omitempty"`
+	TokenType              string  `json:"tokenType,omitempty"`
+	OwnerType              string  `json:"ownerType,omitempty"`
+	SpecificationVersion   string  `json:"specificationVersion,omitempty"`
+	ShowFungible           bool    `json:"showFungible,omitempty"`
+	ShowCollectionMetadata bool    `json:"showCollectionMetadata,omitempty"`
+	SortBy                 *SortBy `json:"sortBy,omitempty"`
+	JsonUri                string  `json:"jsonUri,omitempty"`
 }
 
 // SearchAssets searches for assets matching the given criteria.
@@ -418,13 +417,4 @@ func (c *Client) GetAssetBatch(ctx context.Context, ids []string) ([]Asset, erro
 	c.logger.Debug("fetched asset batch", "requested", len(ids), "returned", len(assets))
 
 	return assets, nil
-}
-
-// doPost with bytes.Buffer for proper body handling
-func (c *Client) doPostJSON(ctx context.Context, path string, reqBody interface{}) ([]byte, error) {
-	jsonBody, err := json.Marshal(reqBody)
-	if err != nil {
-		return nil, fmt.Errorf("marshal request: %w", err)
-	}
-	return c.doRequest(ctx, "POST", path, bytes.NewReader(jsonBody))
 }

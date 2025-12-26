@@ -184,9 +184,10 @@ func CalculateTopHolderStats(holders []TokenHolder, topN int) *TopHolderStats {
 
 	var topBalance int64
 	topHolders := make([]TokenHolder, topCount)
-	for i := 0; i < topCount; i++ {
-		topHolders[i] = holders[i]
-		topBalance += holders[i].Balance
+	// Copy top holders - bounds are guaranteed by topCount check above
+	copy(topHolders, holders[:topCount])
+	for _, h := range topHolders {
+		topBalance += h.Balance
 	}
 
 	var topPercent float64
