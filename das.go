@@ -149,7 +149,7 @@ type Balance struct {
 // GetAssetOptions configures the GetAsset request.
 type GetAssetOptions struct {
 	ShowFungible           bool `json:"showFungible,omitempty"`
-	ShowUnverifiedCollect  bool `json:"showUnverifiedCollections,omitempty"`
+	ShowUnverifiedCollections bool `json:"showUnverifiedCollections,omitempty"`
 	ShowCollectionMetadata bool `json:"showCollectionMetadata,omitempty"`
 	ShowGrandTotal         bool `json:"showGrandTotal,omitempty"`
 	ShowInscription        bool `json:"showInscription,omitempty"`
@@ -193,7 +193,7 @@ type AssetsByOwnerOptions struct {
 	After                  string  `json:"after,omitempty"`
 	ShowFungible           bool    `json:"showFungible,omitempty"`
 	ShowNativeBalance      bool    `json:"showNativeBalance,omitempty"`
-	ShowUnverifiedCollect  bool    `json:"showUnverifiedCollections,omitempty"`
+	ShowUnverifiedCollections bool `json:"showUnverifiedCollections,omitempty"`
 	ShowCollectionMetadata bool    `json:"showCollectionMetadata,omitempty"`
 	ShowGrandTotal         bool    `json:"showGrandTotal,omitempty"`
 	ShowZeroBalance        bool    `json:"showZeroBalance,omitempty"`
@@ -244,7 +244,7 @@ func (c *Client) GetAssetsByOwner(ctx context.Context, ownerAddress string, opts
 		if opts.ShowNativeBalance {
 			displayOpts["showNativeBalance"] = true
 		}
-		if opts.ShowUnverifiedCollect {
+		if opts.ShowUnverifiedCollections {
 			displayOpts["showUnverifiedCollections"] = true
 		}
 		if opts.ShowCollectionMetadata {

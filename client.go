@@ -264,7 +264,7 @@ func (c *Client) doPost(ctx context.Context, path string, body interface{}) ([]b
 	if err != nil {
 		return nil, fmt.Errorf("marshal request: %w", err)
 	}
-	return c.doRequest(ctx, http.MethodPost, path, io.NopCloser(jsonReaderFrom(jsonBody)))
+	return c.doRequest(ctx, http.MethodPost, path, jsonReaderFrom(jsonBody))
 }
 
 // jsonReaderFrom creates a reader from JSON bytes.
