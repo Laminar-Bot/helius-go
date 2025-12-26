@@ -17,27 +17,25 @@ linters:
     - bodyclose
     - gosec
     - prealloc
+  settings:
+    errcheck:
+      check-type-assertions: false
+      check-blank: false
+    gosec:
+      excludes:
+        - G104
+        - G101
+    misspell:
+      locale: US
 
 formatters:
   enable:
     - gofmt
     - goimports
-
-linters-settings:
-  errcheck:
-    check-type-assertions: true
-    check-blank: true
-  gosec:
-    excludes:
-      - G104
-      - G101
-  misspell:
-    locale: US
-
-formatters-settings:
-  goimports:
-    local-prefixes:
-      - github.com/Laminar-Bot/helius-go
+  settings:
+    goimports:
+      local-prefixes:
+        - github.com/Laminar-Bot/helius-go
 
 issues:
   max-issues-per-linter: 0
