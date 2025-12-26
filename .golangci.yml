@@ -27,11 +27,6 @@ linters-settings:
   errcheck:
     check-type-assertions: true
     check-blank: true
-    exclude-functions:
-      - encoding/json.(*Encoder).Encode
-      - encoding/json.(*Decoder).Decode
-      - (net/http.ResponseWriter).Write
-      - io.Copy(os.Stdout)
   gosec:
     excludes:
       - G104
@@ -45,13 +40,5 @@ formatters-settings:
       - github.com/Laminar-Bot/helius-go
 
 issues:
-  exclude-rules:
-    - path: "_test\\.go"
-      linters:
-        - gosec
-        - errcheck
-    - linters:
-        - staticcheck
-      text: "QF1003"
   max-issues-per-linter: 0
   max-same-issues: 0
